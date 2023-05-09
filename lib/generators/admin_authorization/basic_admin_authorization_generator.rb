@@ -5,7 +5,7 @@ class BasicAdminAuthorizationGenerator < Rails::Generators::NamedBase
   class_option :admin_type, type: :string, desc: 'Admin type', default: false
 
   def create_authorizations_file
-    authorization = options[:admin_type] || 'false'
+    authorization = options[:admin_type]
 
     create_file "app/admin/authorizations/#{file_name}_authorization.rb", <<~FILE
       # frozen_string_literal: true

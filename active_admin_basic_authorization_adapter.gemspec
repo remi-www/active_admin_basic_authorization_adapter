@@ -11,7 +11,9 @@ Gem::Specification.new do |gem|
   gem.email       = 'remi.wallaere02200@hotmail.fr'
   gem.files       = ['lib/active_admin_basic_authorization_adapter.rb',
                      'lib/generators/admin_authorization/basic_admin_authorization_generator.rb',
-                     'lib/generators/admin_authorization/USAGE']
+                     'lib/generators/admin_authorization/USAGE',
+                     'lib/generators/default_admin_authorization/default_basic_admin_authorization_generator.rb',
+                     'lib/generators/default_admin_authorization/USAGE']
   # gem.files       = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   # gem.files       = `git ls-files -z`.split("\x0")
   gem.homepage    =
