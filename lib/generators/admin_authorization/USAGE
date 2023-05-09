@@ -1,0 +1,9 @@
+Description:
+Generates admin authorizations file with default crud to false.
+Customize methods to change the authorizations
+
+Example:
+bin/rails generate basic_admin_authorization Thing
+
+    This will create:
+        app/admin/authorizations/thing_authorization.rb
