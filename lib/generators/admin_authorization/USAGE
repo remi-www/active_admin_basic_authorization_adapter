@@ -7,3 +7,11 @@ bin/rails generate basic_admin_authorization Thing
 
     This will create:
         app/admin/authorizations/thing_authorization.rb
+
+You can also pass an option admin_type that will the default code in all the basic CRUD methods
+
+Example:
+bin/rails generate basic_admin_authorization Thing --admin_type 'true'
+
+    This will create:
+        app/admin/authorizations/thing_authorization.rb
