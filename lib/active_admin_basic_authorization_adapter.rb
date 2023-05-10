@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'active_admin/authorization_adapter'
+
 class ActiveAdminBasicAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
   def authorized?(action, subject = nil)
     return unless should_ask_authorization(subject)
