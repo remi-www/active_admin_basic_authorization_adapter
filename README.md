@@ -167,14 +167,13 @@ There is a problem of reading order file. If ever you have any better solution, 
 
 ## ActiveAdmin comments authorization specific usecase
 
-If you want to use active admin comments, follow these steps: 
-Hint: you will have to 
+If you want to use active admin comments, follow these steps (hint: you will have to have installation and config steps)
 
-First, you'll need to create the following file: 
+- First, you'll need to create the following file: 
 
 ```app/admin/authorizations/active_admin/comment_authorization.rb```
 
-Then, paste the following code inside this file:
+- Then, paste the following code inside this file:
 ```ruby
 # frozen_string_literal: true
 
@@ -204,7 +203,7 @@ end
 
 ```
 
-Finally, change this code with your authorization logic inside the methods.
+- Finally, change this code with your authorization logic inside the methods.
 
 Most of the time, this will be the first read file from the admin authorizations (cf the WARNING section)
 If it is, you will need to uncomment this line ```# require_relative '../default_authorization'```
