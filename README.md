@@ -23,6 +23,13 @@ To create the default authorization policy, run
 rails generate default_basic_admin_authorization
 ```
 
+Then add to your active admin initializer:
+
+```ruby
+# IN config/initializers/active_admin
+config.authorization_adapter = ActiveAdminBasicAuthorizationAdapter
+```
+
 ## Authorizations
 
 Active Admin authorization adapter has 4 methods for the CRUD:
