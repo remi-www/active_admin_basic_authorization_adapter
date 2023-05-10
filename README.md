@@ -25,7 +25,7 @@ gem install active_admin_basic_authorization_adapter
 
 ## Configuration
 
-To create the default authorization policy, run
+To create the default authorization file, run
 
 ```ruby
 rails generate default_basic_admin_authorization
@@ -55,7 +55,7 @@ update: #edit, #update;
 destroy: #destroy
 ```
 
-You can also define new methods for you member_actions with the following code:
+You can also define new methods for your member_actions with the following code:
 
 ```ruby
 module ActiveAdmin
@@ -79,6 +79,8 @@ rails generate basic_admin_authorization Thing
 
 Will create the following file
 app/admin/authorizations/thing_authorization.rb
+
+With the following code:
 
 ```ruby
 # frozen_string_literal: true
@@ -111,7 +113,7 @@ end
 
 ```
 
-AND with the admin_type option:
+You can also pass the admin_type option:
 
 ```ruby
 rails generate basic_admin_authorization Thing --admin_type true
