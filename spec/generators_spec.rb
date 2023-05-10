@@ -4,16 +4,16 @@ require 'spec_helper'
 require 'tmpdir'
 
 require 'rails/generators'
-require 'generators/default_admin_authorization/default_basic_admin_authorization_generator'
-require 'generators/admin_authorization/basic_admin_authorization_generator'
+require 'generators/basic_admin_authorization/default_authorization/default_authorization_generator'
+require 'generators/basic_admin_authorization/authorization/authorization_generator'
 
 RSpec.describe 'Generators' do
   before do
     @tmpdir = Dir.mktmpdir
 
     Dir.chdir(@tmpdir) do
-      DefaultBasicAdminAuthorizationGenerator.new([], { quiet: true }).invoke_all
-      BasicAdminAuthorizationGenerator.new(%w[Comment], { quiet: true }).invoke_all
+      BasicAdminAuthorization::Generators::DefaultAuthorizationGenerator.new([], { quiet: true }).invoke_all
+      BasicAdminAuthorization::Generators::AuthorizationGenerator.new(%w[Comment], { quiet: true }).invoke_all
 
       require './app/admin/authorizations/default_authorization'
       require './app/admin/authorizations/comment_authorization'

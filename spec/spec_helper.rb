@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# require "pundit"
-# require "pundit/rspec"
-
 require 'rack'
 require 'rack/test'
 require 'rack/logger'
@@ -12,8 +9,6 @@ require 'active_support/core_ext'
 require 'active_model/naming'
 require 'rails'
 require 'rails/rack'
-# require 'active_record'
-# require 'active_record/base'
 require 'active_admin/authorization_adapter'
 
 module ActiveRecord
