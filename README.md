@@ -5,17 +5,25 @@ with the last updates of ActiveADmin::AuthorizationAdapter
 
 ## Installation
 
-```sh
-gem install active_admin_basic_authorization_adapter
-```
-
-OR
-
-add the following line to your gemfile
+Add the following line to your gemfile
 
 ```ruby
 gem 'active_admin_basic_authorization_adapter'
 ```
+
+Then
+
+```ruby
+bundle install
+```
+
+OR
+
+```sh
+gem install active_admin_basic_authorization_adapter
+```
+
+## Configuration
 
 To create the default authorization policy, run
 
@@ -35,7 +43,7 @@ config.authorization_adapter = ActiveAdminBasicAuthorizationAdapter
 Active Admin authorization adapter has 4 methods for the CRUD:
 
 ```ruby
-:read, :create, :update, :delete.
+:read, :create, :update, :destroy.
 ```
 
 These authorizations handle the following default active admin controller methods:
@@ -44,7 +52,7 @@ These authorizations handle the following default active admin controller method
 read: #index, #show;
 create: #new, #create;
 update: #edit, #update;
-delete: #destroy
+destroy: #destroy
 ```
 
 You can also define new methods for you member_actions with the following code:
@@ -73,6 +81,10 @@ Will create the following file
 app/admin/authorizations/thing_authorization.rb
 
 ```ruby
+# frozen_string_literal: true
+
+# require 'admin/authorizations/default_authorization'
+
 module ActiveAdmin
   module Authorizations
     class MyAdminPageOrModelAuthorization < DefaultAuthorization
@@ -96,6 +108,7 @@ module ActiveAdmin
     end
   end
 end
+
 ```
 
 AND with the admin_type option:
@@ -105,6 +118,9 @@ rails generate basic_admin_authorization Thing --admin_type true
 ```
 
 ```ruby
+# frozen_string_literal: true
+# require 'admin/authorizations/default_authorization'
+
 module ActiveAdmin
   module Authorizations
     class MyAdminPageOrModelAuthorization < DefaultAuthorization
@@ -128,4 +144,22 @@ module ActiveAdmin
     end
   end
 end
+
 ```
+
+# WARNING:
+
+If ever you see the following error
+
+```ruby
+<module:Authorizations>': uninitialized constant ActiveAdmin::Authorizations::DefaultAuthorization (NameError)
+You might need to uncomment the following line:
+```
+
+You might need to uncomment the following line at the top of THE FILE WHERE THE ERROR WAS THROWED (usually the first file in admin/authorizations).
+
+```ruby
+# require 'admin/authorizations/default_authorization'
+```
+
+There is a problem of reading order file. If ever you have any better solution, feel free to make a pull request.

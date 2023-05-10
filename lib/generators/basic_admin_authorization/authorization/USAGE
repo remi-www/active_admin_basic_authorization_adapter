@@ -3,7 +3,7 @@ Generates admin authorizations file with default crud to false.
 Customize methods to change the authorizations
 
 Example:
-bin/rails generate basic_admin_authorization Thing
+bin/rails generate basic_admin_authorization:authorization Thing
 
     This will create:
         app/admin/authorizations/thing_authorization.rb
@@ -11,7 +11,8 @@ bin/rails generate basic_admin_authorization Thing
 You can also pass an option admin_type that will the default code in all the basic CRUD methods
 
 Example:
-bin/rails generate basic_admin_authorization Thing --admin_type 'true'
+bin/rails generate basic_admin_authorization:authorization Thing --admin_type 'true'
 
     This will create:
         app/admin/authorizations/thing_authorization.rb
+    With your admin_type set to true in all the basic CRUD methods

@@ -2,7 +2,7 @@ Description:
 Generates default admin authorization file with default crud to false.
 
 Example:
-bin/rails generate default_basic_admin_authorization
+bin/rails generate basic_admin_authorization:default_authorization
 
     This will create:
         app/admin/authorizations/default_authorization.rb
