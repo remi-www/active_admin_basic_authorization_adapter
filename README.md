@@ -154,7 +154,7 @@ end
 If ever you see the following error
 
 ```ruby
-<module:Authorizations>': uninitialized constant ActiveAdmin::Authorizations::DefaultAuthorization (NameError)
+<module:Authorizations>: uninitialized constant ActiveAdmin::Authorizations::DefaultAuthorization (NameError)
 ```
 
 You might need to uncomment the following line at the top of THE FILE WHERE THE ERROR WAS THROWED (usually the first file in admin/authorizations).
