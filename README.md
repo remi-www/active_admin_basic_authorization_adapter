@@ -85,7 +85,7 @@ With the following code:
 ```ruby
 # frozen_string_literal: true
 
-# require 'admin/authorizations/default_authorization'
+# require_relative './default_authorization'
 
 module ActiveAdmin
   module Authorizations
@@ -121,7 +121,7 @@ rails generate basic_admin_authorization Thing --admin_type true
 
 ```ruby
 # frozen_string_literal: true
-# require 'admin/authorizations/default_authorization'
+# require_relative './default_authorization'
 
 module ActiveAdmin
   module Authorizations
@@ -164,3 +164,47 @@ You might need to uncomment the following line at the top of THE FILE WHERE THE 
 ```
 
 There is a problem of reading order file. If ever you have any better solution, feel free to make a pull request.
+
+## ActiveAdmin comments authorization specific usecase
+
+If you want to use active admin comments, follow these steps: 
+Hint: you will have to 
+
+First, you'll need to create the following file: 
+
+```app/admin/authorizations/active_admin/comment_authorization.rb```
+
+Then, paste the following code inside this file:
+```ruby
+# frozen_string_literal: true
+
+# require_relative '../default_authorization'
+
+module ActiveAdmin
+  module Authorizations
+    class CommentAuthorization < DefaultAuthorization
+      def read
+        false
+      end
+
+      def create
+        false
+      end
+
+      def update
+        false
+      end
+
+      def destroy
+        false
+      end
+    end
+  end
+end
+
+```
+
+Finally, change this code with your authorization logic inside the methods.
+
+Most of the time, this will be the first read file from the admin authorizations (cf the WARNING section)
+If it is, you will need to uncomment this line ```# require_relative '../default_authorization'```
